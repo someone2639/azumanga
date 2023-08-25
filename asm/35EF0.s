@@ -10,7 +10,7 @@
 glabel func_800456F0
 /* 35EF0 800456F0 E8FFBD27 */  addiu      $sp, $sp, -0x18
 /* 35EF4 800456F4 1000BFAF */  sw         $ra, 0x10($sp)
-/* 35EF8 800456F8 CC15010C */  jal        func_80045730
+/* 35EF8 800456F8 CC15010C */  jal        SpuSetReverb
 /* 35EFC 800456FC 21200000 */   addu      $a0, $zero, $zero
 /* 35F00 80045700 1000BF8F */  lw         $ra, 0x10($sp)
 /* 35F04 80045704 1800BD27 */  addiu      $sp, $sp, 0x18
@@ -21,7 +21,7 @@ glabel func_800456F0
 glabel func_80045710
 /* 35F10 80045710 E8FFBD27 */  addiu      $sp, $sp, -0x18
 /* 35F14 80045714 1000BFAF */  sw         $ra, 0x10($sp)
-/* 35F18 80045718 CC15010C */  jal        func_80045730
+/* 35F18 80045718 CC15010C */  jal        SpuSetReverb
 /* 35F1C 8004571C 01000424 */   addiu     $a0, $zero, 0x1
 /* 35F20 80045720 1000BF8F */  lw         $ra, 0x10($sp)
 /* 35F24 80045724 1800BD27 */  addiu      $sp, $sp, 0x18
@@ -29,7 +29,7 @@ glabel func_80045710
 /* 35F2C 8004572C 00000000 */   nop
 .size func_80045710, . - func_80045710
 
-glabel func_80045730
+glabel SpuSetReverb
 /* 35F30 80045730 E8FFBD27 */  addiu      $sp, $sp, -0x18
 /* 35F34 80045734 1000B0AF */  sw         $s0, 0x10($sp)
 /* 35F38 80045738 21808000 */  addu       $s0, $a0, $zero
@@ -64,7 +64,7 @@ glabel func_80045730
 /* 35FA4 800457A4 00000000 */   nop
 /* 35FA8 800457A8 0780043C */  lui        $a0, %hi(D_80069888)
 /* 35FAC 800457AC 8898848C */  lw         $a0, %lo(D_80069888)($a0)
-/* 35FB0 800457B0 2816010C */  jal        func_800458A0
+/* 35FB0 800457B0 2816010C */  jal        _SpuIsInAllocateArea_
 /* 35FB4 800457B4 00000000 */   nop
 /* 35FB8 800457B8 09004010 */  beqz       $v0, .L800457E0
 /* 35FBC 800457BC 00000000 */   nop
@@ -95,4 +95,4 @@ glabel func_80045730
 /* 36014 80045814 1800BD27 */   addiu     $sp, $sp, 0x18
 /* 36018 80045818 00000000 */  nop
 /* 3601C 8004581C 00000000 */  nop
-.size func_80045730, . - func_80045730
+.size SpuSetReverb, . - SpuSetReverb

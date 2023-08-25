@@ -82,7 +82,7 @@ SECTIONS
         build/asm/38AE0.o(.text);
         build/asm/38FB0.o(.text);
         build/asm/39000.o(.text);
-        build/src/3DDA0.o(.text);
+        build/asm/3DDA0.o(.text);
         build/asm/3DE50.o(.text);
         build/asm/4AEF0.o(.text);
         build/asm/4AF30.o(.text);

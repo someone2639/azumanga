@@ -1,23 +1,20 @@
-// struct _m2c_stack_func_8004D5A0 {
-//     /* 0x00 */ char pad0[0x18];
-// };                                                  /* size = 0x18 */
-
-void  func_8004472C(int);                               /* extern */
+void  SpuFree(int);                               /* extern */
 int func_80044D1C(int);                                 /* extern */
 int func_80044D44();                                /* extern */
-extern char D_80078790[];
-extern unsigned short D_800787E8;
+extern char svm_vab_used[];
+extern unsigned short svm_vab_count;
 extern int D_800787F0[];
 
-void func_8004D5A0(unsigned short arg0) {
+void SsVabClose(short vabid) {
     unsigned char temp_v1;
 
-    if (arg0 < 16) {
-        if (D_80078790[arg0] < 3) {
-            if (D_80078790[arg0] != 0) {
-                func_8004472C(D_800787F0[arg0]);
-                D_80078790[arg0] = 0;
-                D_800787E8 -= 1;
+    if (vabid < 16U) {
+        temp_v1 = svm_vab_used[vabid];
+        if (temp_v1 < 3) {
+            if (temp_v1 != 0) {
+                SpuFree(D_800787F0[vabid]);
+                svm_vab_used[vabid] = 0;
+                svm_vab_count -= 1;
                 if (func_80044D44() == 1) {
                     func_80044D1C(0);
                 }

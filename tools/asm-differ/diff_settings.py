@@ -4,7 +4,7 @@ def apply(config, args):
     config["mapfile"] = "build/azumanga.map"
     config["source_directories"] = ["."]
     # config["show_line_numbers_default"] = True
-    # config["arch"] = "mips"
+    config["arch"] = "mipsel"
     # config["map_format"] = "gnu" # gnu, mw, ms
     # config["build_dir"] = "build/" # only needed for mw and ms map format
     # config["expected_dir"] = "expected/" # needed for -o

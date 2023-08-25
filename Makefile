@@ -20,14 +20,14 @@ AS := tools/gcc-2.95.2/as
 CC := tools/gcc-2.95.2/gcc -c -Btools/gcc-2.95.2/ -pipe -Iinclude
 LD := $(CROSS)ld
 
-C_FLAGS := -mrnames -mno-abicalls -mel -mgpopt -mgpOPT -msoft-float -msplit-addresses -mno-abicalls -fno-builtin -fsigned-char -gcoff
-SDATA_LIMIT     := -G8
+CFLAGS := -mrnames -mel -msoft-float -msplit-addresses -mno-abicalls -fno-builtin -fsigned-char -gcoff
+SDATA_LIMIT     := -G0
 OPT_FLAGS       := -O2
 AS_FLAGS        := -Wa,-EL,-march=r3000,-mtune=r3000,-msoft-float,-no-pad-sections,-Iinclude
 AS_SDATA_LIMIT  := -G0
 
 CODE_S = $(wildcard asm/*.s)
-CODE_C = $(wildcard src/*.c)
+# CODE_C = $(wildcard src/*.c)
 DATA_S = $(wildcard asm/data/*.s)
 OBJS = $(foreach file, $(CODE_S) $(DATA_S), build/$(file:.s=.o)) build/assets/80.o \
        $(foreach file, $(CODE_C), build/$(file:.c=.o))
