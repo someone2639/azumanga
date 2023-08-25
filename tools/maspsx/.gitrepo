@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/mkst/maspsx
+	branch = master
+	commit = ab19039b66f42c21db5f325961f88864d949d93b
+	parent = 82bb2597f3e7f6c4d7b27311ff8d95f63fb7aac1
+	method = merge
+	cmdver = 0.4.6

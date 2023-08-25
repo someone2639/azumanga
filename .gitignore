@@ -1,0 +1,9 @@
+*.dat
+*.24
+*.cnf
+*.apf
+str/*
+build/*
+assets/
+
+
