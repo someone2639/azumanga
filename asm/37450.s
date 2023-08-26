@@ -15,14 +15,16 @@ glabel SsSetReservedVoice
 /* 37460 80046C60 00160400 */   sll       $v0, $a0, 24
 /* 37464 80046C64 0880013C */  lui        $at, %hi(D_80078764)
 /* 37468 80046C68 648724A0 */  sb         $a0, %lo(D_80078764)($at)
-/* 3746C 80046C6C 1E1B0108 */  j          .L80046C78
+/* 3746C 80046C6C 1E1B0108 */  j          VS_SRV_OBJ_28
 /* 37470 80046C70 03160200 */   sra       $v0, $v0, 24
 .L80046C74:
 /* 37474 80046C74 FFFF0224 */  addiu      $v0, $zero, -0x1
-.L80046C78:
+.size SsSetReservedVoice, . - SsSetReservedVoice
+
+glabel VS_SRV_OBJ_28
 /* 37478 80046C78 0800E003 */  jr         $ra
 /* 3747C 80046C7C 00000000 */   nop
-.size SsSetReservedVoice, . - SsSetReservedVoice
+.size VS_SRV_OBJ_28, . - VS_SRV_OBJ_28
 
 glabel func_80046C80
 /* 37480 80046C80 E8FFBD27 */  addiu      $sp, $sp, -0x18
@@ -318,7 +320,7 @@ glabel _SsSndSetVol
 /* 3788C 8004708C 04006210 */  beq        $v1, $v0, .L800470A0
 /* 37890 80047090 2150E000 */   addu      $t2, $a3, $zero
 /* 37894 80047094 580086A4 */  sh         $a2, 0x58($a0)
-/* 37898 80047098 301C0108 */  j          .L800470C0
+/* 37898 80047098 301C0108 */  j          SSVOL_OBJ_80
 /* 3789C 8004709C 5A0087A4 */   sh        $a3, 0x5A($a0)
 .L800470A0:
 /* 378A0 800470A0 00220500 */  sll        $a0, $a1, 8
@@ -329,12 +331,14 @@ glabel _SsSndSetVol
 /* 378B4 800470B4 FFFF4631 */  andi       $a2, $t2, 0xFFFF
 /* 378B8 800470B8 D30D010C */  jal        _SsVmSetSeqVol
 /* 378BC 800470BC 01000724 */   addiu     $a3, $zero, 0x1
-.L800470C0:
+.size _SsSndSetVol, . - _SsSndSetVol
+
+glabel SSVOL_OBJ_80
 /* 378C0 800470C0 1000BF8F */  lw         $ra, 0x10($sp)
 /* 378C4 800470C4 1800BD27 */  addiu      $sp, $sp, 0x18
 /* 378C8 800470C8 0800E003 */  jr         $ra
 /* 378CC 800470CC 00000000 */   nop
-.size _SsSndSetVol, . - _SsSndSetVol
+.size SSVOL_OBJ_80, . - SSVOL_OBJ_80
 
 glabel SsSeqSetVol
 /* 378D0 800470D0 E8FFBD27 */  addiu      $sp, $sp, -0x18
@@ -353,19 +357,21 @@ glabel SsSeqSetVol
 /* 37904 80047104 04006210 */  beq        $v1, $v0, .L80047118
 /* 37908 80047108 21300001 */   addu      $a2, $t0, $zero
 /* 3790C 8004710C 5800E5A4 */  sh         $a1, 0x58($a3)
-/* 37910 80047110 4A1C0108 */  j          .L80047128
+/* 37910 80047110 4A1C0108 */  j          SSVOL_OBJ_E8
 /* 37914 80047114 5A00E8A4 */   sh        $t0, 0x5A($a3)
 .L80047118:
 /* 37918 80047118 FFFF2531 */  andi       $a1, $t1, 0xFFFF
 /* 3791C 8004711C FFFFC630 */  andi       $a2, $a2, 0xFFFF
 /* 37920 80047120 D30D010C */  jal        _SsVmSetSeqVol
 /* 37924 80047124 01000724 */   addiu     $a3, $zero, 0x1
-.L80047128:
+.size SsSeqSetVol, . - SsSeqSetVol
+
+glabel SSVOL_OBJ_E8
 /* 37928 80047128 1000BF8F */  lw         $ra, 0x10($sp)
 /* 3792C 8004712C 1800BD27 */  addiu      $sp, $sp, 0x18
 /* 37930 80047130 0800E003 */  jr         $ra
 /* 37934 80047134 00000000 */   nop
-.size SsSeqSetVol, . - SsSeqSetVol
+.size SSVOL_OBJ_E8, . - SSVOL_OBJ_E8
 
 glabel SsSepSetVol
 /* 37938 80047138 E8FFBD27 */  addiu      $sp, $sp, -0x18
@@ -390,7 +396,7 @@ glabel SsSepSetVol
 /* 37984 80047184 04006210 */  beq        $v1, $v0, .L80047198
 /* 37988 80047188 2150E000 */   addu      $t2, $a3, $zero
 /* 3798C 8004718C 580086A4 */  sh         $a2, 0x58($a0)
-/* 37990 80047190 6E1C0108 */  j          .L800471B8
+/* 37990 80047190 6E1C0108 */  j          SSVOL_OBJ_178
 /* 37994 80047194 5A0087A4 */   sh        $a3, 0x5A($a0)
 .L80047198:
 /* 37998 80047198 00220500 */  sll        $a0, $a1, 8
@@ -401,11 +407,13 @@ glabel SsSepSetVol
 /* 379AC 800471AC FFFF4631 */  andi       $a2, $t2, 0xFFFF
 /* 379B0 800471B0 D30D010C */  jal        _SsVmSetSeqVol
 /* 379B4 800471B4 01000724 */   addiu     $a3, $zero, 0x1
-.L800471B8:
+.size SsSepSetVol, . - SsSepSetVol
+
+glabel SSVOL_OBJ_178
 /* 379B8 800471B8 1000BF8F */  lw         $ra, 0x10($sp)
 /* 379BC 800471BC 1800BD27 */  addiu      $sp, $sp, 0x18
 /* 379C0 800471C0 0800E003 */  jr         $ra
 /* 379C4 800471C4 00000000 */   nop
 /* 379C8 800471C8 00000000 */  nop
 /* 379CC 800471CC 00000000 */  nop
-.size SsSepSetVol, . - SsSepSetVol
+.size SSVOL_OBJ_178, . - SSVOL_OBJ_178

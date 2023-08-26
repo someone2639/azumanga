@@ -32,7 +32,7 @@ glabel SsUtKeyOn
 /* 37A24 80047224 21900002 */  addu       $s2, $s0, $zero
 /* 37A28 80047228 03004314 */  bne        $v0, $v1, .L80047238
 /* 37A2C 8004722C 21A02002 */   addu      $s4, $s1, $zero
-/* 37A30 80047230 431D0108 */  j          .L8004750C
+/* 37A30 80047230 431D0108 */  j          UT_KEY_OBJ_33C
 /* 37A34 80047234 FFFF0224 */   addiu     $v0, $zero, -0x1
 .L80047238:
 /* 37A38 80047238 0780013C */  lui        $at, %hi(D_8007769C)
@@ -57,7 +57,7 @@ glabel SsUtKeyOn
 /* 37A84 80047284 F8FFB3A0 */   sb        $s3, -0x8($a1)
 /* 37A88 80047288 40000224 */  addiu      $v0, $zero, 0x40
 /* 37A8C 8004728C F1FFA2A0 */  sb         $v0, -0xF($a1)
-/* 37A90 80047290 C61C0108 */  j          .L80047318
+/* 37A90 80047290 C61C0108 */  j          UT_KEY_OBJ_148
 /* 37A94 80047294 F0FFB2A0 */   sb        $s2, -0x10($a1)
 .L80047298:
 /* 37A98 80047298 2A108300 */  slt        $v0, $a0, $v1
@@ -76,7 +76,7 @@ glabel SsUtKeyOn
 /* 37AC8 800472C8 0D000600 */  break      6
 .L800472CC:
 /* 37ACC 800472CC 12100000 */  mflo       $v0
-/* 37AD0 800472D0 C51C0108 */  j          .L80047314
+/* 37AD0 800472D0 C51C0108 */  j          UT_KEY_OBJ_144
 /* 37AD4 800472D4 F0FFB2A0 */   sb        $s2, -0x10($a1)
 .L800472D8:
 /* 37AD8 800472D8 80190300 */  sll        $v1, $v1, 6
@@ -96,9 +96,11 @@ glabel SsUtKeyOn
 /* 37B08 80047308 7F000224 */  addiu      $v0, $zero, 0x7F
 /* 37B0C 8004730C F0FFB4A0 */  sb         $s4, -0x10($a1)
 /* 37B10 80047310 23104300 */  subu       $v0, $v0, $v1
-.L80047314:
+.size SsUtKeyOn, . - SsUtKeyOn
+
+glabel UT_KEY_OBJ_144
 /* 37B14 80047314 F1FFA2A0 */  sb         $v0, -0xF($a1)
-.L80047318:
+glabel UT_KEY_OBJ_148
 /* 37B18 80047318 001C1600 */  sll        $v1, $s6, 16
 /* 37B1C 8004731C 0880023C */  lui        $v0, %hi(D_80078754)
 /* 37B20 80047320 5487428C */  lw         $v0, %lo(D_80078754)($v0)
@@ -156,7 +158,7 @@ glabel SsUtKeyOn
 .L800473F0:
 /* 37BF0 800473F0 0780013C */  lui        $at, %hi(D_8007769C)
 /* 37BF4 800473F4 9C7620AC */  sw         $zero, %lo(D_8007769C)($at)
-/* 37BF8 800473F8 431D0108 */  j          .L8004750C
+/* 37BF8 800473F8 431D0108 */  j          UT_KEY_OBJ_33C
 /* 37BFC 800473FC FFFF0224 */   addiu     $v0, $zero, -0x1
 .L80047400:
 /* 37C00 80047400 23186400 */  subu       $v1, $v1, $a0
@@ -216,7 +218,7 @@ glabel SsUtKeyOn
 /* 37CD8 800474D8 FFFFA432 */   andi      $a0, $s5, 0xFFFF
 /* 37CDC 800474DC 4C1F010C */  jal        vmNoiseOn
 /* 37CE0 800474E0 21202002 */   addu      $a0, $s1, $zero
-/* 37CE4 800474E4 401D0108 */  j          .L80047500
+/* 37CE4 800474E4 401D0108 */  j          UT_KEY_OBJ_330
 /* 37CE8 800474E8 00000000 */   nop
 .L800474EC:
 /* 37CEC 800474EC E71E010C */  jal        note2pitch2
@@ -224,11 +226,15 @@ glabel SsUtKeyOn
 /* 37CF4 800474F4 01000424 */  addiu      $a0, $zero, 0x1
 /* 37CF8 800474F8 B820010C */  jal        _SsVmKeyOnNow
 /* 37CFC 800474FC FFFF4530 */   andi      $a1, $v0, 0xFFFF
-.L80047500:
+.size UT_KEY_OBJ_144, . - UT_KEY_OBJ_144
+
+glabel UT_KEY_OBJ_330
 /* 37D00 80047500 0780013C */  lui        $at, %hi(D_8007769C)
 /* 37D04 80047504 9C7620AC */  sw         $zero, %lo(D_8007769C)($at)
 /* 37D08 80047508 21102002 */  addu       $v0, $s1, $zero
-.L8004750C:
+.size UT_KEY_OBJ_330, . - UT_KEY_OBJ_330
+
+glabel UT_KEY_OBJ_33C
 /* 37D0C 8004750C 3400BF8F */  lw         $ra, 0x34($sp)
 /* 37D10 80047510 3000BE8F */  lw         $fp, 0x30($sp)
 /* 37D14 80047514 2C00B78F */  lw         $s7, 0x2C($sp)
@@ -241,7 +247,7 @@ glabel SsUtKeyOn
 /* 37D30 80047530 1000B08F */  lw         $s0, 0x10($sp)
 /* 37D34 80047534 0800E003 */  jr         $ra
 /* 37D38 80047538 3800BD27 */   addiu     $sp, $sp, 0x38
-.size SsUtKeyOn, . - SsUtKeyOn
+.size UT_KEY_OBJ_33C, . - UT_KEY_OBJ_33C
 
 glabel SsUtKeyOff
 /* 37D3C 8004753C E8FFBD27 */  addiu      $sp, $sp, -0x18
@@ -296,7 +302,7 @@ glabel SsUtKeyOff
 /* 37E00 80047600 00000000 */   nop
 /* 37E04 80047604 A820010C */  jal        vmNoiseOff
 /* 37E08 80047608 FF000432 */   andi      $a0, $s0, 0xFF
-/* 37E0C 8004760C 8A1D0108 */  j          .L80047628
+/* 37E0C 8004760C 8A1D0108 */  j          UT_KEY_OBJ_458
 /* 37E10 80047610 21100000 */   addu      $v0, $zero, $zero
 .L80047614:
 /* 37E14 80047614 0880013C */  lui        $at, %hi(D_80078788)
@@ -304,7 +310,9 @@ glabel SsUtKeyOff
 /* 37E1C 8004761C A30D010C */  jal        _SsVmKeyOffNow
 /* 37E20 80047620 21200000 */   addu      $a0, $zero, $zero
 /* 37E24 80047624 21100000 */  addu       $v0, $zero, $zero
-.L80047628:
+.size SsUtKeyOff, . - SsUtKeyOff
+
+glabel UT_KEY_OBJ_458
 /* 37E28 80047628 00241000 */  sll        $a0, $s0, 16
 /* 37E2C 8004762C 03240400 */  sra        $a0, $a0, 16
 /* 37E30 80047630 C0180400 */  sll        $v1, $a0, 3
@@ -317,17 +325,19 @@ glabel SsUtKeyOff
 /* 37E4C 8004764C 21082300 */  addu       $at, $at, $v1
 /* 37E50 80047650 5E7F20A4 */  sh         $zero, %lo(D_80077F5E)($at)
 /* 37E54 80047654 0780013C */  lui        $at, %hi(D_8007769C)
-/* 37E58 80047658 9B1D0108 */  j          .L8004766C
+/* 37E58 80047658 9B1D0108 */  j          UT_KEY_OBJ_49C
 /* 37E5C 8004765C 9C7620AC */   sw        $zero, %lo(D_8007769C)($at)
 .L80047660:
 /* 37E60 80047660 0780013C */  lui        $at, %hi(D_8007769C)
 /* 37E64 80047664 9C7620AC */  sw         $zero, %lo(D_8007769C)($at)
 .L80047668:
 /* 37E68 80047668 FFFF0224 */  addiu      $v0, $zero, -0x1
-.L8004766C:
+.size UT_KEY_OBJ_458, . - UT_KEY_OBJ_458
+
+glabel UT_KEY_OBJ_49C
 /* 37E6C 8004766C 1400BF8F */  lw         $ra, 0x14($sp)
 /* 37E70 80047670 1000B08F */  lw         $s0, 0x10($sp)
 /* 37E74 80047674 0800E003 */  jr         $ra
 /* 37E78 80047678 1800BD27 */   addiu     $sp, $sp, 0x18
 /* 37E7C 8004767C 00000000 */  nop
-.size SsUtKeyOff, . - SsUtKeyOff
+.size UT_KEY_OBJ_49C, . - UT_KEY_OBJ_49C

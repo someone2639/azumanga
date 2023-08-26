@@ -30,7 +30,7 @@ glabel SpuSetReverbModeParam
 /* 3617C 8004597C 0400A016 */  bnez       $s5, .L80045990
 /* 36180 80045980 1000A0AF */   sw        $zero, 0x10($sp)
 /* 36184 80045984 01006232 */  andi       $v0, $s3, 0x1
-/* 36188 80045988 43004010 */  beqz       $v0, .L80045A98
+/* 36188 80045988 43004010 */  beqz       $v0, S_SRMP_OBJ_168
 /* 3618C 8004598C 00000000 */   nop
 .L80045990:
 /* 36190 80045990 0400508E */  lw         $s0, 0x4($s2)
@@ -54,7 +54,7 @@ glabel SpuSetReverbModeParam
 /* 361D4 800459D4 03004010 */  beqz       $v0, .L800459E4
 /* 361D8 800459D8 01001424 */   addiu     $s4, $zero, 0x1
 .L800459DC:
-/* 361DC 800459DC 75170108 */  j          .L80045DD4
+/* 361DC 800459DC 75170108 */  j          S_SRMP_OBJ_4A4
 /* 361E0 800459E0 FFFF0224 */   addiu     $v0, $zero, -0x1
 .L800459E4:
 /* 361E4 800459E4 1000A627 */  addiu      $a2, $sp, 0x10
@@ -90,23 +90,27 @@ glabel SpuSetReverbModeParam
 /* 36258 80045A58 08000224 */   addiu     $v0, $zero, 0x8
 /* 3625C 80045A5C 07006210 */  beq        $v1, $v0, .L80045A7C
 /* 36260 80045A60 7F000224 */   addiu     $v0, $zero, 0x7F
-/* 36264 80045A64 A2160108 */  j          .L80045A88
+/* 36264 80045A64 A2160108 */  j          S_SRMP_OBJ_158
 /* 36268 80045A68 00000000 */   nop
 .L80045A6C:
 /* 3626C 80045A6C 7F000224 */  addiu      $v0, $zero, 0x7F
 /* 36270 80045A70 0C0082AC */  sw         $v0, 0xC($a0)
-/* 36274 80045A74 A6160108 */  j          .L80045A98
+/* 36274 80045A74 A6160108 */  j          S_SRMP_OBJ_168
 /* 36278 80045A78 080082AC */   sw        $v0, 0x8($a0)
 .L80045A7C:
 /* 3627C 80045A7C 0C0080AC */  sw         $zero, 0xC($a0)
-/* 36280 80045A80 A6160108 */  j          .L80045A98
+/* 36280 80045A80 A6160108 */  j          S_SRMP_OBJ_168
 /* 36284 80045A84 080082AC */   sw        $v0, 0x8($a0)
-.L80045A88:
+.size SpuSetReverbModeParam, . - SpuSetReverbModeParam
+
+glabel S_SRMP_OBJ_158
 /* 36288 80045A88 0780023C */  lui        $v0, %hi(D_8006989C)
 /* 3628C 80045A8C 9C984224 */  addiu      $v0, $v0, %lo(D_8006989C)
 /* 36290 80045A90 000040AC */  sw         $zero, 0x0($v0)
 /* 36294 80045A94 FCFF40AC */  sw         $zero, -0x4($v0)
-.L80045A98:
+.size S_SRMP_OBJ_158, . - S_SRMP_OBJ_158
+
+glabel S_SRMP_OBJ_168
 /* 36298 80045A98 0300A016 */  bnez       $s5, .L80045AA8
 /* 3629C 80045A9C 08006232 */   andi      $v0, $s3, 0x8
 /* 362A0 80045AA0 45004010 */  beqz       $v0, .L80045BB8
@@ -217,13 +221,15 @@ glabel SpuSetReverbModeParam
 /* 3642C 80045C2C 0000A2A0 */  sb         $v0, 0x0($a1)
 /* 36430 80045C30 FBFF8614 */  bne        $a0, $a2, .L80045C20
 /* 36434 80045C34 0100A524 */   addiu     $a1, $a1, 0x1
-/* 36438 80045C38 13170108 */  j          .L80045C4C
+/* 36438 80045C38 13170108 */  j          S_SRMP_OBJ_31C
 /* 3643C 80045C3C 80000224 */   addiu     $v0, $zero, 0x80
 .L80045C40:
 /* 36440 80045C40 1000A28F */  lw         $v0, 0x10($sp)
 /* 36444 80045C44 00000000 */  nop
 /* 36448 80045C48 80004234 */  ori        $v0, $v0, 0x80
-.L80045C4C:
+.size S_SRMP_OBJ_168, . - S_SRMP_OBJ_168
+
+glabel S_SRMP_OBJ_31C
 /* 3644C 80045C4C 1000A2AF */  sw         $v0, 0x10($sp)
 .L80045C50:
 /* 36450 80045C50 0281043C */  lui        $a0, (0x81020409 >> 16)
@@ -251,12 +257,12 @@ glabel SpuSetReverbModeParam
 /* 364A4 80045CA4 00000000 */  nop
 /* 364A8 80045CA8 C2110200 */  srl        $v0, $v0, 7
 /* 364AC 80045CAC 01005730 */  andi       $s7, $v0, 0x1
-/* 364B0 80045CB0 1F00E012 */  beqz       $s7, .L80045D30
+/* 364B0 80045CB0 1F00E012 */  beqz       $s7, S_SRMP_OBJ_400
 /* 364B4 80045CB4 00000000 */   nop
 /* 364B8 80045CB8 AA016294 */  lhu        $v0, 0x1AA($v1)
 /* 364BC 80045CBC 00000000 */  nop
 /* 364C0 80045CC0 7FFF4230 */  andi       $v0, $v0, 0xFF7F
-/* 364C4 80045CC4 4C170108 */  j          .L80045D30
+/* 364C4 80045CC4 4C170108 */  j          S_SRMP_OBJ_400
 /* 364C8 80045CC8 AA0162A4 */   sh        $v0, 0x1AA($v1)
 .L80045CCC:
 /* 364CC 80045CCC 0300A016 */  bnez       $s5, .L80045CDC
@@ -275,7 +281,7 @@ glabel SpuSetReverbModeParam
 .L80045CFC:
 /* 364FC 80045CFC 0300A016 */  bnez       $s5, .L80045D0C
 /* 36500 80045D00 04006232 */   andi      $v0, $s3, 0x4
-/* 36504 80045D04 13004010 */  beqz       $v0, .L80045D54
+/* 36504 80045D04 13004010 */  beqz       $v0, S_SRMP_OBJ_424
 /* 36508 80045D08 00000000 */   nop
 .L80045D0C:
 /* 3650C 80045D0C 0780023C */  lui        $v0, %hi(D_8006910C)
@@ -285,9 +291,11 @@ glabel SpuSetReverbModeParam
 /* 3651C 80045D1C 860143A4 */  sh         $v1, 0x186($v0)
 /* 36520 80045D20 0A004296 */  lhu        $v0, 0xA($s2)
 /* 36524 80045D24 0780013C */  lui        $at, %hi(D_80069896)
-/* 36528 80045D28 55170108 */  j          .L80045D54
+/* 36528 80045D28 55170108 */  j          S_SRMP_OBJ_424
 /* 3652C 80045D2C 969822A4 */   sh        $v0, %lo(D_80069896)($at)
-.L80045D30:
+.size S_SRMP_OBJ_31C, . - S_SRMP_OBJ_31C
+
+glabel S_SRMP_OBJ_400
 /* 36530 80045D30 0780023C */  lui        $v0, %hi(D_8006910C)
 /* 36534 80045D34 0C91428C */  lw         $v0, %lo(D_8006910C)($v0)
 /* 36538 80045D38 00000000 */  nop
@@ -297,7 +305,9 @@ glabel SpuSetReverbModeParam
 /* 36548 80045D48 94984224 */  addiu      $v0, $v0, %lo(D_80069894)
 /* 3654C 80045D4C 000040A4 */  sh         $zero, 0x0($v0)
 /* 36550 80045D50 020040A4 */  sh         $zero, 0x2($v0)
-.L80045D54:
+.size S_SRMP_OBJ_400, . - S_SRMP_OBJ_400
+
+glabel S_SRMP_OBJ_424
 /* 36554 80045D54 05008016 */  bnez       $s4, .L80045D6C
 /* 36558 80045D58 00000000 */   nop
 /* 3655C 80045D5C 0300C016 */  bnez       $s6, .L80045D6C
@@ -323,7 +333,7 @@ glabel SpuSetReverbModeParam
 /* 365A0 80045DA0 8898A58C */  lw         $a1, %lo(D_80069888)($a1)
 /* 365A4 80045DA4 46CD000C */  jal        _spu_FsetRXX
 /* 365A8 80045DA8 21300000 */   addu      $a2, $zero, $zero
-/* 365AC 80045DAC 0900E012 */  beqz       $s7, .L80045DD4
+/* 365AC 80045DAC 0900E012 */  beqz       $s7, S_SRMP_OBJ_4A4
 /* 365B0 80045DB0 21100000 */   addu      $v0, $zero, $zero
 /* 365B4 80045DB4 0780033C */  lui        $v1, %hi(D_8006910C)
 /* 365B8 80045DB8 0C91638C */  lw         $v1, %lo(D_8006910C)($v1)
@@ -334,7 +344,9 @@ glabel SpuSetReverbModeParam
 /* 365CC 80045DCC AA0162A4 */  sh         $v0, 0x1AA($v1)
 .L80045DD0:
 /* 365D0 80045DD0 21100000 */  addu       $v0, $zero, $zero
-.L80045DD4:
+.size S_SRMP_OBJ_424, . - S_SRMP_OBJ_424
+
+glabel S_SRMP_OBJ_4A4
 /* 365D4 80045DD4 8400BF8F */  lw         $ra, 0x84($sp)
 /* 365D8 80045DD8 8000BE8F */  lw         $fp, 0x80($sp)
 /* 365DC 80045DDC 7C00B78F */  lw         $s7, 0x7C($sp)
@@ -350,4 +362,4 @@ glabel SpuSetReverbModeParam
 /* 36604 80045E04 00000000 */  nop
 /* 36608 80045E08 00000000 */  nop
 /* 3660C 80045E0C 00000000 */  nop
-.size SpuSetReverbModeParam, . - SpuSetReverbModeParam
+.size S_SRMP_OBJ_4A4, . - S_SRMP_OBJ_4A4

@@ -26,7 +26,7 @@ OPT_FLAGS       := -O2
 AS_FLAGS        := -Wa,-EL,-march=r3000,-mtune=r3000,-msoft-float,-no-pad-sections,-Iinclude
 AS_SDATA_LIMIT  := -G0
 
-CODE_S = $(wildcard asm/*.s)
+CODE_S = $(wildcard asm/*.s) $(wildcard asm/**/*.s)
 # CODE_C = $(wildcard src/*.c)
 DATA_S = $(wildcard asm/data/*.s)
 OBJS = $(foreach file, $(CODE_S) $(DATA_S), build/$(file:.s=.o)) build/assets/80.o \
@@ -34,7 +34,7 @@ OBJS = $(foreach file, $(CODE_S) $(DATA_S), build/$(file:.s=.o)) build/assets/80
 
 ASFLAGS := -32 -march=r3000 -mtune=r3000 -msoft-float -no-pad-sections -Iinclude/
 
-DUMMY != mkdir -p build/ build/asm/ build/asm/data/ build/assets/ build/src
+DUMMY != mkdir -p $(foreach file, $(OBJS), $(dir $(file)))
 
 clean:
 	rm -rf build/

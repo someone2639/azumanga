@@ -13,14 +13,16 @@ glabel _SpuIsInAllocateArea
 /* 36028 80045828 00000000 */  nop
 /* 3602C 8004582C 03004014 */  bnez       $v0, .L8004583C
 /* 36030 80045830 0080083C */   lui       $t0, (0x80000000 >> 16)
-/* 36034 80045834 26160108 */  j          .L80045898
+/* 36034 80045834 26160108 */  j          S_M_UTIL_OBJ_78
 /* 36038 80045838 21100000 */   addu      $v0, $zero, $zero
 .L8004583C:
 /* 3603C 8004583C 0040073C */  lui        $a3, (0x40000000 >> 16)
 /* 36040 80045840 FF0F063C */  lui        $a2, (0xFFFFFFF >> 16)
 /* 36044 80045844 FFFFC634 */  ori        $a2, $a2, (0xFFFFFFF & 0xFFFF)
 /* 36048 80045848 21284000 */  addu       $a1, $v0, $zero
-.L8004584C:
+.size _SpuIsInAllocateArea, . - _SpuIsInAllocateArea
+
+glabel S_M_UTIL_OBJ_2C
 /* 3604C 8004584C 0000A38C */  lw         $v1, 0x0($a1)
 /* 36050 80045850 00000000 */  nop
 /* 36054 80045854 24106800 */  and        $v0, $v1, $t0
@@ -29,23 +31,25 @@ glabel _SpuIsInAllocateArea
 /* 36060 80045860 0C004014 */  bnez       $v0, .L80045894
 /* 36064 80045864 24186600 */   and       $v1, $v1, $a2
 /* 36068 80045868 2B106400 */  sltu       $v0, $v1, $a0
-/* 3606C 8004586C 0A004010 */  beqz       $v0, .L80045898
+/* 3606C 8004586C 0A004010 */  beqz       $v0, S_M_UTIL_OBJ_78
 /* 36070 80045870 01000224 */   addiu     $v0, $zero, 0x1
 /* 36074 80045874 0400A28C */  lw         $v0, 0x4($a1)
 /* 36078 80045878 00000000 */  nop
 /* 3607C 8004587C 21106200 */  addu       $v0, $v1, $v0
 /* 36080 80045880 2B108200 */  sltu       $v0, $a0, $v0
-/* 36084 80045884 04004014 */  bnez       $v0, .L80045898
+/* 36084 80045884 04004014 */  bnez       $v0, S_M_UTIL_OBJ_78
 /* 36088 80045888 01000224 */   addiu     $v0, $zero, 0x1
 .L8004588C:
-/* 3608C 8004588C 13160108 */  j          .L8004584C
+/* 3608C 8004588C 13160108 */  j          S_M_UTIL_OBJ_2C
 /* 36090 80045890 0800A524 */   addiu     $a1, $a1, 0x8
 .L80045894:
 /* 36094 80045894 21100000 */  addu       $v0, $zero, $zero
-.L80045898:
+.size S_M_UTIL_OBJ_2C, . - S_M_UTIL_OBJ_2C
+
+glabel S_M_UTIL_OBJ_78
 /* 36098 80045898 0800E003 */  jr         $ra
 /* 3609C 8004589C 00000000 */   nop
-.size _SpuIsInAllocateArea, . - _SpuIsInAllocateArea
+.size S_M_UTIL_OBJ_78, . - S_M_UTIL_OBJ_78
 
 glabel _SpuIsInAllocateArea_
 /* 360A0 800458A0 0780023C */  lui        $v0, %hi(D_80069134)
@@ -55,7 +59,7 @@ glabel _SpuIsInAllocateArea_
 /* 360B0 800458B0 00000000 */  nop
 /* 360B4 800458B4 03006014 */  bnez       $v1, .L800458C4
 /* 360B8 800458B8 04204400 */   sllv      $a0, $a0, $v0
-/* 360BC 800458BC 49160108 */  j          .L80045924
+/* 360BC 800458BC 49160108 */  j          S_M_UTIL_OBJ_104
 /* 360C0 800458C0 21100000 */   addu      $v0, $zero, $zero
 .L800458C4:
 /* 360C4 800458C4 0080083C */  lui        $t0, (0x80000000 >> 16)
@@ -63,7 +67,9 @@ glabel _SpuIsInAllocateArea_
 /* 360CC 800458CC FF0F063C */  lui        $a2, (0xFFFFFFF >> 16)
 /* 360D0 800458D0 FFFFC634 */  ori        $a2, $a2, (0xFFFFFFF & 0xFFFF)
 /* 360D4 800458D4 21286000 */  addu       $a1, $v1, $zero
-.L800458D8:
+.size _SpuIsInAllocateArea_, . - _SpuIsInAllocateArea_
+
+glabel S_M_UTIL_OBJ_B8
 /* 360D8 800458D8 0000A38C */  lw         $v1, 0x0($a1)
 /* 360DC 800458DC 00000000 */  nop
 /* 360E0 800458E0 24106800 */  and        $v0, $v1, $t0
@@ -72,21 +78,23 @@ glabel _SpuIsInAllocateArea_
 /* 360EC 800458EC 0C004014 */  bnez       $v0, .L80045920
 /* 360F0 800458F0 24186600 */   and       $v1, $v1, $a2
 /* 360F4 800458F4 2B106400 */  sltu       $v0, $v1, $a0
-/* 360F8 800458F8 0A004010 */  beqz       $v0, .L80045924
+/* 360F8 800458F8 0A004010 */  beqz       $v0, S_M_UTIL_OBJ_104
 /* 360FC 800458FC 01000224 */   addiu     $v0, $zero, 0x1
 /* 36100 80045900 0400A28C */  lw         $v0, 0x4($a1)
 /* 36104 80045904 00000000 */  nop
 /* 36108 80045908 21106200 */  addu       $v0, $v1, $v0
 /* 3610C 8004590C 2B108200 */  sltu       $v0, $a0, $v0
-/* 36110 80045910 04004014 */  bnez       $v0, .L80045924
+/* 36110 80045910 04004014 */  bnez       $v0, S_M_UTIL_OBJ_104
 /* 36114 80045914 01000224 */   addiu     $v0, $zero, 0x1
 .L80045918:
-/* 36118 80045918 36160108 */  j          .L800458D8
+/* 36118 80045918 36160108 */  j          S_M_UTIL_OBJ_B8
 /* 3611C 8004591C 0800A524 */   addiu     $a1, $a1, 0x8
 .L80045920:
 /* 36120 80045920 21100000 */  addu       $v0, $zero, $zero
-.L80045924:
+.size S_M_UTIL_OBJ_B8, . - S_M_UTIL_OBJ_B8
+
+glabel S_M_UTIL_OBJ_104
 /* 36124 80045924 0800E003 */  jr         $ra
 /* 36128 80045928 00000000 */   nop
 /* 3612C 8004592C 00000000 */  nop
-.size _SpuIsInAllocateArea_, . - _SpuIsInAllocateArea_
+.size S_M_UTIL_OBJ_104, . - S_M_UTIL_OBJ_104

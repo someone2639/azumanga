@@ -103,7 +103,7 @@ glabel _SsVmKeyOnNow
 /* 38C4C 8004844C 23104300 */  subu       $v0, $v0, $v1
 /* 38C50 80048450 42100200 */  srl        $v0, $v0, 1
 /* 38C54 80048454 21186200 */  addu       $v1, $v1, $v0
-/* 38C58 80048458 25210108 */  j          .L80048494
+/* 38C58 80048458 25210108 */  j          VM_NOWON_OBJ_1B4
 /* 38C5C 8004845C 42290300 */   srl       $a1, $v1, 5
 .L80048460:
 /* 38C60 80048460 7F000224 */  addiu      $v0, $zero, 0x7F
@@ -119,7 +119,9 @@ glabel _SsVmKeyOnNow
 /* 38C88 80048488 42100200 */  srl        $v0, $v0, 1
 /* 38C8C 8004848C 21186200 */  addu       $v1, $v1, $v0
 /* 38C90 80048490 42210300 */  srl        $a0, $v1, 5
-.L80048494:
+.size _SsVmKeyOnNow, . - _SsVmKeyOnNow
+
+glabel VM_NOWON_OBJ_1B4
 /* 38C94 80048494 0880033C */  lui        $v1, %hi(D_8007877B)
 /* 38C98 80048498 7B876390 */  lbu        $v1, %lo(D_8007877B)($v1)
 /* 38C9C 8004849C 00000000 */  nop
@@ -134,7 +136,7 @@ glabel _SsVmKeyOnNow
 /* 38CC0 800484C0 23104300 */  subu       $v0, $v0, $v1
 /* 38CC4 800484C4 42100200 */  srl        $v0, $v0, 1
 /* 38CC8 800484C8 21186200 */  addu       $v1, $v1, $v0
-/* 38CCC 800484CC 41210108 */  j          .L80048504
+/* 38CCC 800484CC 41210108 */  j          VM_NOWON_OBJ_224
 /* 38CD0 800484D0 42290300 */   srl       $a1, $v1, 5
 .L800484D4:
 /* 38CD4 800484D4 7F000224 */  addiu      $v0, $zero, 0x7F
@@ -149,7 +151,9 @@ glabel _SsVmKeyOnNow
 /* 38CF8 800484F8 42100200 */  srl        $v0, $v0, 1
 /* 38CFC 800484FC 21186200 */  addu       $v1, $v1, $v0
 /* 38D00 80048500 42210300 */  srl        $a0, $v1, 5
-.L80048504:
+.size VM_NOWON_OBJ_1B4, . - VM_NOWON_OBJ_1B4
+
+glabel VM_NOWON_OBJ_224
 /* 38D04 80048504 0880033C */  lui        $v1, %hi(D_80078775)
 /* 38D08 80048508 75876390 */  lbu        $v1, %lo(D_80078775)($v1)
 /* 38D0C 8004850C 00000000 */  nop
@@ -164,7 +168,7 @@ glabel _SsVmKeyOnNow
 /* 38D30 80048530 23104300 */  subu       $v0, $v0, $v1
 /* 38D34 80048534 42100200 */  srl        $v0, $v0, 1
 /* 38D38 80048538 21186200 */  addu       $v1, $v1, $v0
-/* 38D3C 8004853C 5D210108 */  j          .L80048574
+/* 38D3C 8004853C 5D210108 */  j          VM_NOWON_OBJ_294
 /* 38D40 80048540 42290300 */   srl       $a1, $v1, 5
 .L80048544:
 /* 38D44 80048544 7F000224 */  addiu      $v0, $zero, 0x7F
@@ -179,19 +183,23 @@ glabel _SsVmKeyOnNow
 /* 38D68 80048568 42100200 */  srl        $v0, $v0, 1
 /* 38D6C 8004856C 21186200 */  addu       $v1, $v1, $v0
 /* 38D70 80048570 42210300 */  srl        $a0, $v1, 5
-.L80048574:
+.size VM_NOWON_OBJ_224, . - VM_NOWON_OBJ_224
+
+glabel VM_NOWON_OBJ_294
 /* 38D74 80048574 0880033C */  lui        $v1, %hi(D_80078750)
 /* 38D78 80048578 50876384 */  lh         $v1, %lo(D_80078750)($v1)
 /* 38D7C 8004857C 01000224 */  addiu      $v0, $zero, 0x1
-/* 38D80 80048580 06006214 */  bne        $v1, $v0, .L8004859C
+/* 38D80 80048580 06006214 */  bne        $v1, $v0, VM_NOWON_OBJ_2BC
 /* 38D84 80048584 2B108500 */   sltu      $v0, $a0, $a1
 /* 38D88 80048588 03004010 */  beqz       $v0, .L80048598
 /* 38D8C 8004858C 00000000 */   nop
-/* 38D90 80048590 67210108 */  j          .L8004859C
+/* 38D90 80048590 67210108 */  j          VM_NOWON_OBJ_2BC
 /* 38D94 80048594 2120A000 */   addu      $a0, $a1, $zero
 .L80048598:
 /* 38D98 80048598 21288000 */  addu       $a1, $a0, $zero
-.L8004859C:
+.size VM_NOWON_OBJ_294, . - VM_NOWON_OBJ_294
+
+glabel VM_NOWON_OBJ_2BC
 /* 38D9C 8004859C 0880063C */  lui        $a2, %hi(D_80078784)
 /* 38DA0 800485A0 8487C624 */  addiu      $a2, $a2, %lo(D_80078784)
 /* 38DA4 800485A4 0000C384 */  lh         $v1, 0x0($a2)
@@ -254,13 +262,15 @@ glabel _SsVmKeyOnNow
 /* 38E84 80048684 04004010 */  beqz       $v0, .L80048698
 /* 38E88 80048688 01000224 */   addiu     $v0, $zero, 0x1
 /* 38E8C 8004868C 04306200 */  sllv       $a2, $v0, $v1
-/* 38E90 80048690 A9210108 */  j          .L800486A4
+/* 38E90 80048690 A9210108 */  j          VM_NOWON_OBJ_3C4
 /* 38E94 80048694 21280000 */   addu      $a1, $zero, $zero
 .L80048698:
 /* 38E98 80048698 21300000 */  addu       $a2, $zero, $zero
 /* 38E9C 8004869C F0FF6324 */  addiu      $v1, $v1, -0x10
 /* 38EA0 800486A0 04286200 */  sllv       $a1, $v0, $v1
-.L800486A4:
+.size VM_NOWON_OBJ_2BC, . - VM_NOWON_OBJ_2BC
+
+glabel VM_NOWON_OBJ_3C4
 /* 38EA4 800486A4 0880023C */  lui        $v0, %hi(D_80078782)
 /* 38EA8 800486A8 82874290 */  lbu        $v0, %lo(D_80078782)($v0)
 /* 38EAC 800486AC 00000000 */  nop
@@ -277,7 +287,7 @@ glabel _SsVmKeyOnNow
 /* 38ED8 800486D8 347F22A4 */  sh         $v0, %lo(D_80077F34)($at)
 /* 38EDC 800486DC 0780013C */  lui        $at, %hi(D_80077F36)
 /* 38EE0 800486E0 367F23A4 */  sh         $v1, %lo(D_80077F36)($at)
-/* 38EE4 800486E4 C8210108 */  j          .L80048720
+/* 38EE4 800486E4 C8210108 */  j          VM_NOWON_OBJ_440
 /* 38EE8 800486E8 27180600 */   nor       $v1, $zero, $a2
 .L800486EC:
 /* 38EEC 800486EC 0780023C */  lui        $v0, %hi(D_80077F34)
@@ -293,7 +303,9 @@ glabel _SsVmKeyOnNow
 /* 38F14 80048714 0780013C */  lui        $at, %hi(D_80077F36)
 /* 38F18 80048718 367F22A4 */  sh         $v0, %lo(D_80077F36)($at)
 /* 38F1C 8004871C 27180600 */  nor        $v1, $zero, $a2
-.L80048720:
+.size VM_NOWON_OBJ_3C4, . - VM_NOWON_OBJ_3C4
+
+glabel VM_NOWON_OBJ_440
 /* 38F20 80048720 0780023C */  lui        $v0, %hi(D_80077F38)
 /* 38F24 80048724 387F4294 */  lhu        $v0, %lo(D_80077F38)($v0)
 /* 38F28 80048728 0780043C */  lui        $a0, %hi(D_80077F32)
@@ -330,4 +342,4 @@ glabel _SsVmKeyOnNow
 /* 38FA4 800487A4 6A8622A4 */   sh        $v0, %lo(D_8007866A)($at)
 /* 38FA8 800487A8 00000000 */  nop
 /* 38FAC 800487AC 00000000 */  nop
-.size _SsVmKeyOnNow, . - _SsVmKeyOnNow
+.size VM_NOWON_OBJ_440, . - VM_NOWON_OBJ_440

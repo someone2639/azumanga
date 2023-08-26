@@ -18,14 +18,14 @@ glabel __floatsidf
 /* 517DC 80060FDC 04008014 */  bnez       $a0, .L80060FF0
 /* 517E0 80060FE0 2000B0AF */   sw        $s0, 0x20($sp)
 /* 517E4 80060FE4 21800000 */  addu       $s0, $zero, $zero
-/* 517E8 80060FE8 2D840108 */  j          .L800610B4
+/* 517E8 80060FE8 2D840108 */  j          FLTSIDF_OBJ_F4
 /* 517EC 80060FEC 21880000 */   addu      $s1, $zero, $zero
 .L80060FF0:
 /* 517F0 80060FF0 0080023C */  lui        $v0, (0x80000000 >> 16)
 /* 517F4 80060FF4 04008214 */  bne        $a0, $v0, .L80061008
 /* 517F8 80060FF8 00000000 */   nop
 /* 517FC 80060FFC E0C1113C */  lui        $s1, (0xC1E00000 >> 16)
-/* 51800 80061000 2D840108 */  j          .L800610B4
+/* 51800 80061000 2D840108 */  j          FLTSIDF_OBJ_F4
 /* 51804 80061004 21800000 */   addu      $s0, $zero, $zero
 .L80061008:
 /* 51808 80061008 03008104 */  bgez       $a0, .L80061018
@@ -76,7 +76,9 @@ glabel __floatsidf
 /* 518A8 800610A8 25882202 */  or         $s1, $s1, $v0
 /* 518AC 800610AC 1800B08F */  lw         $s0, 0x18($sp)
 /* 518B0 800610B0 1C00A3AF */  sw         $v1, 0x1C($sp)
-.L800610B4:
+.size __floatsidf, . - __floatsidf
+
+glabel FLTSIDF_OBJ_F4
 /* 518B4 800610B4 21100002 */  addu       $v0, $s0, $zero
 /* 518B8 800610B8 21182002 */  addu       $v1, $s1, $zero
 /* 518BC 800610BC 3000BF8F */  lw         $ra, 0x30($sp)
@@ -88,4 +90,4 @@ glabel __floatsidf
 /* 518D4 800610D4 3800BD27 */   addiu     $sp, $sp, 0x38
 /* 518D8 800610D8 00000000 */  nop
 /* 518DC 800610DC 00000000 */  nop
-.size __floatsidf, . - __floatsidf
+.size FLTSIDF_OBJ_F4, . - FLTSIDF_OBJ_F4

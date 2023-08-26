@@ -64,10 +64,12 @@ glabel SsPitchFromNote
 /* 38408 80047C08 2138E500 */  addu       $a3, $a3, $a1
 /* 3840C 80047C0C 003C0700 */  sll        $a3, $a3, 16
 /* 38410 80047C10 033C0700 */  sra        $a3, $a3, 16
-/* 38414 80047C14 0200E104 */  bgez       $a3, .L80047C20
+/* 38414 80047C14 0200E104 */  bgez       $a3, VM_N2P_OBJ_D0
 /* 38418 80047C18 2118E000 */   addu      $v1, $a3, $zero
 /* 3841C 80047C1C 7F00E324 */  addiu      $v1, $a3, 0x7F
-.L80047C20:
+.size SsPitchFromNote, . - SsPitchFromNote
+
+glabel VM_N2P_OBJ_D0
 /* 38420 80047C20 C3190300 */  sra        $v1, $v1, 7
 /* 38424 80047C24 21208300 */  addu       $a0, $a0, $v1
 /* 38428 80047C28 FF00C230 */  andi       $v0, $a2, 0xFF
@@ -126,7 +128,7 @@ glabel SsPitchFromNote
 /* 384F0 80047CF0 12480000 */  mflo       $t1
 /* 384F4 80047CF4 03004004 */  bltz       $v0, .L80047D04
 /* 384F8 80047CF8 032C0900 */   sra       $a1, $t1, 16
-/* 384FC 80047CFC 471F0108 */  j          .L80047D1C
+/* 384FC 80047CFC 471F0108 */  j          VM_N2P_OBJ_1CC
 /* 38500 80047D00 FF3F0524 */   addiu     $a1, $zero, 0x3FFF
 .L80047D04:
 /* 38504 80047D04 23200200 */  negu       $a0, $v0
@@ -135,10 +137,12 @@ glabel SsPitchFromNote
 /* 38510 80047D10 04106200 */  sllv       $v0, $v0, $v1
 /* 38514 80047D14 2128A200 */  addu       $a1, $a1, $v0
 /* 38518 80047D18 06288500 */  srlv       $a1, $a1, $a0
-.L80047D1C:
+.size VM_N2P_OBJ_D0, . - VM_N2P_OBJ_D0
+
+glabel VM_N2P_OBJ_1CC
 /* 3851C 80047D1C 0800E003 */  jr         $ra
 /* 38520 80047D20 FFFFA230 */   andi      $v0, $a1, 0xFFFF
 /* 38524 80047D24 00000000 */  nop
 /* 38528 80047D28 00000000 */  nop
 /* 3852C 80047D2C 00000000 */  nop
-.size SsPitchFromNote, . - SsPitchFromNote
+.size VM_N2P_OBJ_1CC, . - VM_N2P_OBJ_1CC

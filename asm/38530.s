@@ -107,7 +107,7 @@ glabel vmNoiseOn
 /* 386AC 80047EAC 23104300 */  subu       $v0, $v0, $v1
 /* 386B0 80047EB0 42100200 */  srl        $v0, $v0, 1
 /* 386B4 80047EB4 21186200 */  addu       $v1, $v1, $v0
-/* 386B8 80047EB8 BD1F0108 */  j          .L80047EF4
+/* 386B8 80047EB8 BD1F0108 */  j          VM_NO1_OBJ_1C4
 /* 386BC 80047EBC 42890300 */   srl       $s1, $v1, 5
 .L80047EC0:
 /* 386C0 80047EC0 7F000224 */  addiu      $v0, $zero, 0x7F
@@ -123,7 +123,9 @@ glabel vmNoiseOn
 /* 386E8 80047EE8 42100200 */  srl        $v0, $v0, 1
 /* 386EC 80047EEC 21186200 */  addu       $v1, $v1, $v0
 /* 386F0 80047EF0 42910300 */  srl        $s2, $v1, 5
-.L80047EF4:
+.size vmNoiseOn, . - vmNoiseOn
+
+glabel VM_NO1_OBJ_1C4
 /* 386F4 80047EF4 0880043C */  lui        $a0, %hi(D_8007877B)
 /* 386F8 80047EF8 7B878480 */  lb         $a0, %lo(D_8007877B)($a0)
 /* 386FC 80047EFC 00000000 */  nop
@@ -138,7 +140,7 @@ glabel vmNoiseOn
 /* 38720 80047F20 23104300 */  subu       $v0, $v0, $v1
 /* 38724 80047F24 42100200 */  srl        $v0, $v0, 1
 /* 38728 80047F28 21186200 */  addu       $v1, $v1, $v0
-/* 3872C 80047F2C D91F0108 */  j          .L80047F64
+/* 3872C 80047F2C D91F0108 */  j          VM_NO1_OBJ_234
 /* 38730 80047F30 42890300 */   srl       $s1, $v1, 5
 .L80047F34:
 /* 38734 80047F34 7F000224 */  addiu      $v0, $zero, 0x7F
@@ -153,12 +155,14 @@ glabel vmNoiseOn
 /* 38758 80047F58 42100200 */  srl        $v0, $v0, 1
 /* 3875C 80047F5C 21186200 */  addu       $v1, $v1, $v0
 /* 38760 80047F60 42910300 */  srl        $s2, $v1, 5
-.L80047F64:
+.size VM_NO1_OBJ_1C4, . - VM_NO1_OBJ_1C4
+
+glabel VM_NO1_OBJ_234
 /* 38764 80047F64 0880043C */  lui        $a0, %hi(D_80078775)
 /* 38768 80047F68 75878480 */  lb         $a0, %lo(D_80078775)($a0)
 /* 3876C 80047F6C 00000000 */  nop
 /* 38770 80047F70 4000822C */  sltiu      $v0, $a0, 0x40
-/* 38774 80047F74 0B004010 */  beqz       $v0, .L80047FA4
+/* 38774 80047F74 0B004010 */  beqz       $v0, VM_NO1_OBJ_274
 /* 38778 80047F78 18009100 */   mult      $a0, $s1
 /* 3877C 80047F7C 12100000 */  mflo       $v0
 /* 38780 80047F80 1004033C */  lui        $v1, (0x4104105 >> 16)
@@ -168,9 +172,11 @@ glabel vmNoiseOn
 /* 38790 80047F90 23104300 */  subu       $v0, $v0, $v1
 /* 38794 80047F94 42100200 */  srl        $v0, $v0, 1
 /* 38798 80047F98 21186200 */  addu       $v1, $v1, $v0
-/* 3879C 80047F9C F51F0108 */  j          .L80047FD4
+/* 3879C 80047F9C F51F0108 */  j          VM_NO1_OBJ_2A4
 /* 387A0 80047FA0 42890300 */   srl       $s1, $v1, 5
-.L80047FA4:
+.size VM_NO1_OBJ_234, . - VM_NO1_OBJ_234
+
+glabel VM_NO1_OBJ_274
 /* 387A4 80047FA4 7F000224 */  addiu      $v0, $zero, 0x7F
 /* 387A8 80047FA8 23104400 */  subu       $v0, $v0, $a0
 /* 387AC 80047FAC 18004202 */  mult       $s2, $v0
@@ -183,19 +189,23 @@ glabel vmNoiseOn
 /* 387C8 80047FC8 42100200 */  srl        $v0, $v0, 1
 /* 387CC 80047FCC 21186200 */  addu       $v1, $v1, $v0
 /* 387D0 80047FD0 42910300 */  srl        $s2, $v1, 5
-.L80047FD4:
+.size VM_NO1_OBJ_274, . - VM_NO1_OBJ_274
+
+glabel VM_NO1_OBJ_2A4
 /* 387D4 80047FD4 0880033C */  lui        $v1, %hi(D_80078750)
 /* 387D8 80047FD8 50876384 */  lh         $v1, %lo(D_80078750)($v1)
 /* 387DC 80047FDC 01000224 */  addiu      $v0, $zero, 0x1
-/* 387E0 80047FE0 06006214 */  bne        $v1, $v0, .L80047FFC
+/* 387E0 80047FE0 06006214 */  bne        $v1, $v0, VM_NO1_OBJ_2CC
 /* 387E4 80047FE4 2B105102 */   sltu      $v0, $s2, $s1
 /* 387E8 80047FE8 03004010 */  beqz       $v0, .L80047FF8
 /* 387EC 80047FEC 00000000 */   nop
-/* 387F0 80047FF0 FF1F0108 */  j          .L80047FFC
+/* 387F0 80047FF0 FF1F0108 */  j          VM_NO1_OBJ_2CC
 /* 387F4 80047FF4 21902002 */   addu      $s2, $s1, $zero
 .L80047FF8:
 /* 387F8 80047FF8 21884002 */  addu       $s1, $s2, $zero
-.L80047FFC:
+.size VM_NO1_OBJ_2A4, . - VM_NO1_OBJ_2A4
+
+glabel VM_NO1_OBJ_2CC
 /* 387FC 80047FFC 0880063C */  lui        $a2, %hi(D_80078784)
 /* 38800 80048000 8487C624 */  addiu      $a2, $a2, %lo(D_80078784)
 /* 38804 80048004 0000C384 */  lh         $v1, 0x0($a2)
@@ -249,13 +259,15 @@ glabel vmNoiseOn
 /* 388C0 800480C0 04004010 */  beqz       $v0, .L800480D4
 /* 388C4 800480C4 01000224 */   addiu     $v0, $zero, 0x1
 /* 388C8 800480C8 04380202 */  sllv       $a3, $v0, $s0
-/* 388CC 800480CC 38200108 */  j          .L800480E0
+/* 388CC 800480CC 38200108 */  j          VM_NO1_OBJ_3B0
 /* 388D0 800480D0 21300000 */   addu      $a2, $zero, $zero
 .L800480D4:
 /* 388D4 800480D4 21380000 */  addu       $a3, $zero, $zero
 /* 388D8 800480D8 F0FF0326 */  addiu      $v1, $s0, -0x10
 /* 388DC 800480DC 04306200 */  sllv       $a2, $v0, $v1
-.L800480E0:
+.size VM_NO1_OBJ_2CC, . - VM_NO1_OBJ_2CC
+
+glabel VM_NO1_OBJ_3B0
 /* 388E0 800480E0 FF006332 */  andi       $v1, $s3, 0xFF
 /* 388E4 800480E4 C0100300 */  sll        $v0, $v1, 3
 /* 388E8 800480E8 23104300 */  subu       $v0, $v0, $v1
@@ -344,7 +356,7 @@ glabel vmNoiseOn
 /* 38A28 80048228 0780013C */  lui        $at, %hi(D_80077F34)
 /* 38A2C 8004822C 347F22A4 */  sh         $v0, %lo(D_80077F34)($at)
 /* 38A30 80048230 0780013C */  lui        $at, %hi(D_80077F36)
-/* 38A34 80048234 9B200108 */  j          .L8004826C
+/* 38A34 80048234 9B200108 */  j          VM_NO1_OBJ_53C
 /* 38A38 80048238 367F23A4 */   sh        $v1, %lo(D_80077F36)($at)
 .L8004823C:
 /* 38A3C 8004823C 0780023C */  lui        $v0, %hi(D_80077F34)
@@ -359,7 +371,9 @@ glabel vmNoiseOn
 /* 38A60 80048260 24104300 */  and        $v0, $v0, $v1
 /* 38A64 80048264 0780013C */  lui        $at, %hi(D_80077F36)
 /* 38A68 80048268 367F22A4 */  sh         $v0, %lo(D_80077F36)($at)
-.L8004826C:
+.size VM_NO1_OBJ_3B0, . - VM_NO1_OBJ_3B0
+
+glabel VM_NO1_OBJ_53C
 /* 38A6C 8004826C 0780013C */  lui        $at, %hi(D_80077F38)
 /* 38A70 80048270 387F27A4 */  sh         $a3, %lo(D_80077F38)($at)
 /* 38A74 80048274 0780013C */  lui        $at, %hi(D_80077F3A)
@@ -373,4 +387,4 @@ glabel vmNoiseOn
 /* 38A94 80048294 2800BD27 */   addiu     $sp, $sp, 0x28
 /* 38A98 80048298 00000000 */  nop
 /* 38A9C 8004829C 00000000 */  nop
-.size vmNoiseOn, . - vmNoiseOn
+.size VM_NO1_OBJ_53C, . - VM_NO1_OBJ_53C

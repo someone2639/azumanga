@@ -16,7 +16,9 @@ glabel _dbl_shift_us
 /* 51614 80060E14 2300C018 */  blez       $a2, .L80060EA4
 /* 51618 80060E18 21200000 */   addu      $a0, $zero, $zero
 /* 5161C 80060E1C 0080073C */  lui        $a3, (0x80000000 >> 16)
-.L80060E20:
+.size _dbl_shift_us, . - _dbl_shift_us
+
+glabel DBSHIFTU_OBJ_20
 /* 51620 80060E20 0C00A28F */  lw         $v0, 0xC($sp)
 /* 51624 80060E24 0800A58F */  lw         $a1, 0x8($sp)
 /* 51628 80060E28 40180200 */  sll        $v1, $v0, 1
@@ -32,7 +34,7 @@ glabel _dbl_shift_us
 /* 5164C 80060E4C 2A108600 */  slt        $v0, $a0, $a2
 /* 51650 80060E50 14004010 */  beqz       $v0, .L80060EA4
 /* 51654 80060E54 00000000 */   nop
-/* 51658 80060E58 88830108 */  j          .L80060E20
+/* 51658 80060E58 88830108 */  j          DBSHIFTU_OBJ_20
 /* 5165C 80060E5C 00000000 */   nop
 .L80060E60:
 /* 51660 80060E60 1000C018 */  blez       $a2, .L80060EA4
@@ -62,4 +64,4 @@ glabel _dbl_shift_us
 /* 516B4 80060EB4 0800E003 */  jr         $ra
 /* 516B8 80060EB8 21100001 */   addu      $v0, $t0, $zero
 /* 516BC 80060EBC 00000000 */  nop
-.size _dbl_shift_us, . - _dbl_shift_us
+.size DBSHIFTU_OBJ_20, . - DBSHIFTU_OBJ_20

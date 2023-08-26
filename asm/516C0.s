@@ -20,7 +20,7 @@ glabel __fixdfsi
 /* 516E4 80060EE4 2C00B3AF */  sw         $s3, 0x2C($sp)
 /* 516E8 80060EE8 03004014 */  bnez       $v0, .L80060EF8
 /* 516EC 80060EEC 2800B2AF */   sw        $s2, 0x28($sp)
-/* 516F0 80060EF0 29000012 */  beqz       $s0, .L80060F98
+/* 516F0 80060EF0 29000012 */  beqz       $s0, FIXDFSI_OBJ_D8
 /* 516F4 80060EF4 21100000 */   addu      $v0, $zero, $zero
 .L80060EF8:
 /* 516F8 80060EF8 03151100 */  sra        $v0, $s1, 20
@@ -31,9 +31,9 @@ glabel __fixdfsi
 /* 5170C 80060F0C 5484010C */  jal        _err_math
 /* 51710 80060F10 11000524 */   addiu     $a1, $zero, 0x11
 /* 51714 80060F14 FF7F023C */  lui        $v0, (0x7FFFFFFF >> 16)
-/* 51718 80060F18 1F002106 */  bgez       $s1, .L80060F98
+/* 51718 80060F18 1F002106 */  bgez       $s1, FIXDFSI_OBJ_D8
 /* 5171C 80060F1C FFFF4234 */   ori       $v0, $v0, (0x7FFFFFFF & 0xFFFF)
-/* 51720 80060F20 E6830108 */  j          .L80060F98
+/* 51720 80060F20 E6830108 */  j          FIXDFSI_OBJ_D8
 /* 51724 80060F24 0080023C */   lui       $v0, (0x80000000 >> 16)
 .L80060F28:
 /* 51728 80060F28 0F00023C */  lui        $v0, (0xFFFFF >> 16)
@@ -57,16 +57,20 @@ glabel __fixdfsi
 /* 51770 80060F70 00000000 */   nop
 /* 51774 80060F74 03006010 */  beqz       $v1, .L80060F84
 /* 51778 80060F78 23101300 */   negu      $v0, $s3
-/* 5177C 80060F7C E3830108 */  j          .L80060F8C
+/* 5177C 80060F7C E3830108 */  j          FIXDFSI_OBJ_CC
 /* 51780 80060F80 07184300 */   srav      $v1, $v1, $v0
 .L80060F84:
-/* 51784 80060F84 E6830108 */  j          .L80060F98
+/* 51784 80060F84 E6830108 */  j          FIXDFSI_OBJ_D8
 /* 51788 80060F88 21100000 */   addu      $v0, $zero, $zero
-.L80060F8C:
-/* 5178C 80060F8C 02002106 */  bgez       $s1, .L80060F98
+.size __fixdfsi, . - __fixdfsi
+
+glabel FIXDFSI_OBJ_CC
+/* 5178C 80060F8C 02002106 */  bgez       $s1, FIXDFSI_OBJ_D8
 /* 51790 80060F90 21106000 */   addu      $v0, $v1, $zero
 /* 51794 80060F94 23100200 */  negu       $v0, $v0
-.L80060F98:
+.size FIXDFSI_OBJ_CC, . - FIXDFSI_OBJ_CC
+
+glabel FIXDFSI_OBJ_D8
 /* 51798 80060F98 3000BF8F */  lw         $ra, 0x30($sp)
 /* 5179C 80060F9C 2C00B38F */  lw         $s3, 0x2C($sp)
 /* 517A0 80060FA0 2800B28F */  lw         $s2, 0x28($sp)
@@ -77,4 +81,4 @@ glabel __fixdfsi
 /* 517B4 80060FB4 00000000 */  nop
 /* 517B8 80060FB8 00000000 */  nop
 /* 517BC 80060FBC 00000000 */  nop
-.size __fixdfsi, . - __fixdfsi
+.size FIXDFSI_OBJ_D8, . - FIXDFSI_OBJ_D8

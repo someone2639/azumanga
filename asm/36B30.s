@@ -16,17 +16,19 @@ glabel SpuIsReverbWorkAreaReserved
 /* 36B44 80046344 8898848C */  lw         $a0, %lo(D_80069888)($a0)
 /* 36B48 80046348 2816010C */  jal        _SpuIsInAllocateArea_
 /* 36B4C 8004634C 00000000 */   nop
-/* 36B50 80046350 D8180108 */  j          .L80046360
+/* 36B50 80046350 D8180108 */  j          S_IRWAR_OBJ_30
 /* 36B54 80046354 0100422C */   sltiu     $v0, $v0, 0x1
 .L80046358:
 /* 36B58 80046358 0780023C */  lui        $v0, %hi(D_80069884)
 /* 36B5C 8004635C 8498428C */  lw         $v0, %lo(D_80069884)($v0)
-.L80046360:
+.size SpuIsReverbWorkAreaReserved, . - SpuIsReverbWorkAreaReserved
+
+glabel S_IRWAR_OBJ_30
 /* 36B60 80046360 1000BF8F */  lw         $ra, 0x10($sp)
 /* 36B64 80046364 1800BD27 */  addiu      $sp, $sp, 0x18
 /* 36B68 80046368 0800E003 */  jr         $ra
 /* 36B6C 8004636C 00000000 */   nop
-.size SpuIsReverbWorkAreaReserved, . - SpuIsReverbWorkAreaReserved
+.size S_IRWAR_OBJ_30, . - S_IRWAR_OBJ_30
 
 glabel SpuClearReverbWorkArea
 /* 36B70 80046370 C8FFBD27 */  addiu      $sp, $sp, -0x38
@@ -52,7 +54,7 @@ glabel SpuClearReverbWorkArea
 /* 36BC0 800463C0 03004010 */  beqz       $v0, .L800463D0
 /* 36BC4 800463C4 00000000 */   nop
 .L800463C8:
-/* 36BC8 800463C8 38190108 */  j          .L800464E0
+/* 36BC8 800463C8 38190108 */  j          S_CRWA_OBJ_170
 /* 36BCC 800463CC FFFF0224 */   addiu     $v0, $zero, -0x1
 .L800463D0:
 /* 36BD0 800463D0 08000016 */  bnez       $s0, .L800463F4
@@ -62,7 +64,7 @@ glabel SpuClearReverbWorkArea
 /* 36BE0 800463E0 10000324 */  addiu      $v1, $zero, 0x10
 /* 36BE4 800463E4 04884300 */  sllv       $s1, $v1, $v0
 /* 36BE8 800463E8 F0FF0334 */  ori        $v1, $zero, 0xFFF0
-/* 36BEC 800463EC 03190108 */  j          .L8004640C
+/* 36BEC 800463EC 03190108 */  j          S_CRWA_OBJ_9C
 /* 36BF0 800463F0 04904300 */   sllv      $s2, $v1, $v0
 .L800463F4:
 /* 36BF4 800463F4 0000248E */  lw         $a0, 0x0($s1)
@@ -71,7 +73,9 @@ glabel SpuClearReverbWorkArea
 /* 36C00 80046400 23104400 */  subu       $v0, $v0, $a0
 /* 36C04 80046404 04886200 */  sllv       $s1, $v0, $v1
 /* 36C08 80046408 04906400 */  sllv       $s2, $a0, $v1
-.L8004640C:
+.size SpuClearReverbWorkArea, . - SpuClearReverbWorkArea
+
+glabel S_CRWA_OBJ_9C
 /* 36C0C 8004640C 0780143C */  lui        $s4, %hi(D_80069128)
 /* 36C10 80046410 2891948E */  lw         $s4, %lo(D_80069128)($s4)
 /* 36C14 80046414 01000224 */  addiu      $v0, $zero, 0x1
@@ -124,13 +128,15 @@ glabel SpuClearReverbWorkArea
 .L800464C0:
 /* 36CC0 800464C0 1000A28F */  lw         $v0, 0x10($sp)
 /* 36CC4 800464C4 00000000 */  nop
-/* 36CC8 800464C8 05004010 */  beqz       $v0, .L800464E0
+/* 36CC8 800464C8 05004010 */  beqz       $v0, S_CRWA_OBJ_170
 /* 36CCC 800464CC 21100000 */   addu      $v0, $zero, $zero
 /* 36CD0 800464D0 1000A28F */  lw         $v0, 0x10($sp)
 /* 36CD4 800464D4 0780013C */  lui        $at, %hi(D_80069144)
 /* 36CD8 800464D8 449122AC */  sw         $v0, %lo(D_80069144)($at)
 /* 36CDC 800464DC 21100000 */  addu       $v0, $zero, $zero
-.L800464E0:
+.size S_CRWA_OBJ_9C, . - S_CRWA_OBJ_9C
+
+glabel S_CRWA_OBJ_170
 /* 36CE0 800464E0 3000BF8F */  lw         $ra, 0x30($sp)
 /* 36CE4 800464E4 2C00B58F */  lw         $s5, 0x2C($sp)
 /* 36CE8 800464E8 2800B48F */  lw         $s4, 0x28($sp)
@@ -143,4 +149,4 @@ glabel SpuClearReverbWorkArea
 /* 36D04 80046504 00000000 */  nop
 /* 36D08 80046508 00000000 */  nop
 /* 36D0C 8004650C 00000000 */  nop
-.size SpuClearReverbWorkArea, . - SpuClearReverbWorkArea
+.size S_CRWA_OBJ_170, . - S_CRWA_OBJ_170
