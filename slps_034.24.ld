@@ -89,6 +89,10 @@ SECTIONS
         build/asm/libgte/func_8001EBC8.o(.text);
         build/asm/libgte/ratan.o(.text);
         build/asm/F568.o(.text);
+        build/asm/libgte/reg10.o(.text);
+        build/asm/libgte/mtx_11.o(.text);
+        build/asm/libgte/smp_04.o(.text);
+        build/asm/libgpu/p07.o(.text);
         build/asm/117D0.o(.text);
         main_DATA_START = .;
         _18E38_data = .;
@@ -187,6 +191,10 @@ SECTIONS
         build/asm/libgte/func_8001EBC8.o(.bss);
         build/asm/libgte/ratan.o(.bss);
         build/asm/F568.o(.bss);
+        build/asm/libgte/reg10.o(.bss);
+        build/asm/libgte/mtx_11.o(.bss);
+        build/asm/libgte/smp_04.o(.bss);
+        build/asm/libgpu/p07.o(.bss);
         build/asm/117D0.o(.bss);
         build/asm/18FB8.o(.bss);
         build/asm/libsnd/ut_roff.o(.bss);
