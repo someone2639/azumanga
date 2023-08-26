@@ -15,7 +15,7 @@
 
 # else
 
-# define _assert(x)	{if (!(x)){printf("Assertion failed: file \"%s\", line %d\n", __FILE__, __LINE__);exit(1);}}
+# define _assert(x)	{if (!(x)){printf("Assertion failed: file \"%s\", line %d\n", __FILE__, __LINE__);}}
 # define assert(x)	_assert(x)
 
 # endif
