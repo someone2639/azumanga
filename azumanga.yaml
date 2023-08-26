@@ -179,7 +179,12 @@ segments:
       - [0x4013C, asm, TEXMAN]
 
 
-      - [0x416F8, asm, MAINSUB] # need to split out strncpy and mainproc and HEAP
+      # need to split out strncpy and mainproc and HEAP
+      - [0x416F8, asm, MAINSUB] 
+      - [0x41FF8, asm, libds/dstype]
+      - [0x42288, asm, APFrs]
+      - [0x42864, asm, libc/c26]
+      - [0x42874, asm, HEAP]
       - [0x44FA0, asm, mainproc]
       - [0x45BE8, asm, MEMCARD]
 

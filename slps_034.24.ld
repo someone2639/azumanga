@@ -158,6 +158,10 @@ SECTIONS
         build/asm/3F2B4.o(.text);
         build/asm/TEXMAN.o(.text);
         build/asm/MAINSUB.o(.text);
+        build/asm/libds/dstype.o(.text);
+        build/asm/APFrs.o(.text);
+        build/asm/libc/c26.o(.text);
+        build/asm/HEAP.o(.text);
         build/asm/mainproc.o(.text);
         build/asm/MEMCARD.o(.text);
         build/asm/libmcrd/libmcrd.o(.text);
@@ -322,6 +326,10 @@ SECTIONS
         build/asm/3F2B4.o(.bss);
         build/asm/TEXMAN.o(.bss);
         build/asm/MAINSUB.o(.bss);
+        build/asm/libds/dstype.o(.bss);
+        build/asm/APFrs.o(.bss);
+        build/asm/libc/c26.o(.bss);
+        build/asm/HEAP.o(.bss);
         build/asm/mainproc.o(.bss);
         build/asm/MEMCARD.o(.bss);
         build/asm/libmcrd/libmcrd.o(.bss);
