@@ -158,6 +158,7 @@ SECTIONS
         build/asm/3F2B4.o(.text);
         build/asm/TEXMAN.o(.text);
         build/asm/MAINSUB.o(.text);
+        build/asm/MEMCARD.o(.text);
         build/asm/libmcrd/libmcrd.o(.text);
         build/asm/libapi/a50.o(.text);
         build/asm/libapi/a51.o(.text);
@@ -178,6 +179,12 @@ SECTIONS
         build/asm/4AEF0.o(.text);
         build/asm/4AF30.o(.text);
         build/asm/4AF60.o(.text);
+        build/asm/libsnd/ut_ako.obj.o(.text);
+        build/asm/libgte/smp_01_1.o(.text);
+        build/asm/DISPBMP.o(.text);
+        build/asm/TMD_SCAN.o(.text);
+        build/asm/MEMMENU.o(.text);
+        build/asm/WINDOW.o(.text);
         build/asm/51160.o(.text);
         build/asm/51540.o(.text);
         build/asm/51600.o(.text);
@@ -185,7 +192,7 @@ SECTIONS
         build/asm/517C0.o(.text);
         build/asm/518E0.o(.text);
         build/asm/519C0.o(.text);
-        build/asm/51A40.o(.text);
+        build/asm/EFFECT.o(.text);
         main_TEXT_END = .;
         main_TEXT_SIZE = ABSOLUTE(main_TEXT_END - main_TEXT_START);
         _52EB0_data = .;
@@ -314,6 +321,7 @@ SECTIONS
         build/asm/3F2B4.o(.bss);
         build/asm/TEXMAN.o(.bss);
         build/asm/MAINSUB.o(.bss);
+        build/asm/MEMCARD.o(.bss);
         build/asm/libmcrd/libmcrd.o(.bss);
         build/asm/libapi/a50.o(.bss);
         build/asm/libapi/a51.o(.bss);
@@ -334,6 +342,12 @@ SECTIONS
         build/asm/4AEF0.o(.bss);
         build/asm/4AF30.o(.bss);
         build/asm/4AF60.o(.bss);
+        build/asm/libsnd/ut_ako.obj.o(.bss);
+        build/asm/libgte/smp_01_1.o(.bss);
+        build/asm/DISPBMP.o(.bss);
+        build/asm/TMD_SCAN.o(.bss);
+        build/asm/MEMMENU.o(.bss);
+        build/asm/WINDOW.o(.bss);
         build/asm/51160.o(.bss);
         build/asm/51540.o(.bss);
         build/asm/51600.o(.bss);
@@ -341,7 +355,7 @@ SECTIONS
         build/asm/517C0.o(.bss);
         build/asm/518E0.o(.bss);
         build/asm/519C0.o(.bss);
-        build/asm/51A40.o(.bss);
+        build/asm/EFFECT.o(.bss);
         main_BSS_END = .;
         main_BSS_SIZE = ABSOLUTE(main_BSS_END - main_BSS_START);
     }

@@ -177,7 +177,12 @@ segments:
       - [0x3F2A4, asm, libc/c20]
       - [0x3F2B4, asm]
       - [0x4013C, asm, TEXMAN]
-      - [0x416F8, asm, MAINSUB]
+
+
+      - [0x416F8, asm, MAINSUB] # need to split out strncpy and mainproc and HEAP
+      - [0x45BE8, asm, MEMCARD]
+
+
       - [0x4759C, asm, libmcrd/libmcrd]
       - [0x48E6C, asm, libapi/a50]
       - [0x48E7C, asm, libapi/a51]
@@ -198,6 +203,12 @@ segments:
       - [0x4AEF0, asm]
       - [0x4AF30, asm]
       - [0x4AF60, asm]
+      - [0x4B22C, asm, libsnd/ut_ako.obj]
+      - [0x4B37C, asm, libgte/smp_01_1]
+      - [0x4B3AC, asm, DISPBMP]
+      - [0x4C27C, asm, TMD_SCAN]
+      - [0x4E27C, asm, MEMMENU]
+      - [0x505A0, asm, WINDOW]
       - [0x51160, asm]
       - [0x51540, asm]
       - [0x51600, asm]
@@ -205,6 +216,6 @@ segments:
       - [0x517C0, asm]
       - [0x518E0, asm]
       - [0x519C0, asm]
-      - [0x51A40, asm]
+      - [0x51A40, asm, EFFECT]
       - [0x52EB0, data]
   - [0x5C800]
