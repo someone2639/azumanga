@@ -4,5 +4,5 @@
 
 # Notes
  - This currently builds `slps_034.24`
- -- There is another supposedly more comprehensive exe in `az.apf`, need to figure out how to get files out of there
+ -- The files in the `az.apf` archive are extracted as well, but no analysis has been done on them yet.
 
