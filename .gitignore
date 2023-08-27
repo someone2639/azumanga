@@ -6,4 +6,8 @@ str/*
 build/*
 assets/
 research/a.out
+fs/*
+
+tools/APFExtract
+
 
