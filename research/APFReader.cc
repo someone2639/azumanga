@@ -203,36 +203,8 @@ int main(int argc, char **argv) {
 
         std::filesystem::path p = path;
         n.path = p;
-        // printf("Creating: %s\n", path.c_str());
-
-        if (stat(p.parent_path().c_str(), &st) == -1) {
-            mkdir(p.parent_path().c_str(), 0777);
-        }
-        int fd = open(p.c_str(), O_CREAT, 0666);
-        close(fd);
         n.print();
     }
-
-    // for (size_t i = 0; i < nodes.size(); i++) {
-    //     printf("File @ 0x%08X\n", nodes[i].offset + 0x800);
-
-    //     char fnm[50];
-    //     sprintf(fnm, "./headers/%ld.hd", i);
-    //     FILE *tm = fopen(fnm, "wb+");
-    //     printf("open result: %s\n", strerror(errno));
-    //     fseek(f, 0x800 + nodes[i].offset, SEEK_SET);
-    //     u32 writ = 0;
-    //     unsigned char t;
-    //     while (1) {
-    //         fread(&t, 1, 1, f);
-    //         if (t == 0x7a && writ != 0) {
-    //             fseek(f, -1, SEEK_CUR);
-    //             break;
-    //         }
-    //         writ += fwrite(&t, 1, 1, tm);
-    //     }
-    //     fclose(tm);
-    // }
 
     printf("File Count: %ld\n", nodes.size());
 

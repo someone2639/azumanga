@@ -13,6 +13,7 @@
 
 using u32=uint32_t;
 #define ALIGN4(x) (((x) + 3) & -4)
+#define ALIGNSECTOR(x) (((x) + 0x7FF) & -0x800)
 
 void usage(char *nm) {
     printf("Usage: %s path/to/file.apf\n", nm);
@@ -195,6 +196,8 @@ int main(int argc, char **argv) {
 
     struct stat st;
 
+
+    int BlobOffset = 0x3800; // HARDCODED
     for (Node &n : nodes) {
         n.ParseNode(f);
 
@@ -208,31 +211,18 @@ int main(int argc, char **argv) {
         if (stat(p.parent_path().c_str(), &st) == -1) {
             mkdir(p.parent_path().c_str(), 0777);
         }
-        int fd = open(p.c_str(), O_CREAT, 0666);
+        int fd = open(p.c_str(), O_CREAT | O_WRONLY, 0666);
+
+        fseek(f, BlobOffset, SEEK_SET);
+
+        char *buf = (char*)malloc(n.data.siz);
+        fread(buf, sizeof(char), n.data.siz, f);
+        write(fd, buf, n.data.siz);
+        printf("[%s]\t\tWriting %d bytes...\n", p.c_str(), n.data.siz);
         close(fd);
-        n.print();
+        free(buf);
+        BlobOffset += ALIGNSECTOR(n.data.siz);
     }
-
-    // for (size_t i = 0; i < nodes.size(); i++) {
-    //     printf("File @ 0x%08X\n", nodes[i].offset + 0x800);
-
-    //     char fnm[50];
-    //     sprintf(fnm, "./headers/%ld.hd", i);
-    //     FILE *tm = fopen(fnm, "wb+");
-    //     printf("open result: %s\n", strerror(errno));
-    //     fseek(f, 0x800 + nodes[i].offset, SEEK_SET);
-    //     u32 writ = 0;
-    //     unsigned char t;
-    //     while (1) {
-    //         fread(&t, 1, 1, f);
-    //         if (t == 0x7a && writ != 0) {
-    //             fseek(f, -1, SEEK_CUR);
-    //             break;
-    //         }
-    //         writ += fwrite(&t, 1, 1, tm);
-    //     }
-    //     fclose(tm);
-    // }
 
     printf("File Count: %ld\n", nodes.size());
 

@@ -55,6 +55,8 @@ build/$(EXE): $(OBJS)
 	$(LD) -EL -T undefined_funcs_auto.txt -T undefined_syms_auto.txt -T $(EXE).ld -Map build/azumanga.map -o $@.o
 	$(CROSS)objcopy -O binary $@.o $@
 
-
+setup:
+	make -C tools
+	./tools/APFExtract az.apf
 
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
