@@ -164,19 +164,14 @@ int main(int argc, char **argv) {
 
     if (strncmp(fil.magic, "APF_", 4) != 0) {
         printf("APFrs / Read data is None APF file.\n");
+        exit(1);
     }
     else if (strncmp(fil.magic, "APF_v2.0", 8) == 0) {
-        printf("APFrs / Read data is APF file.\n");
-        printf("APFrs / All nodes \t\t: %d\n", fil._008 + fil._00C);
-        printf("APFrs / Root nodes\t\t: %d\n", fil.RootNodeCount);
-        // printf("APFrs / Node table sector\t: %d\n", arg1->unk4);
-        printf("APFrs / Node table size\t\t: %d\n", fil.NodeTableSize);
-        printf("APFrs / File body sector\t: %d\n", fil.FileBodySector);
-        // printf("APFrs / Head sector\t\t: %d\n", arg1->unk14);
-        printf("APFrs / Parameters\t\t: %d\n", fil.Params);
+        // do nothing
     }
     else {
         printf("APFrs / Read data is APF Version different.\n");
+        exit(1);
     }
 
 
@@ -218,13 +213,12 @@ int main(int argc, char **argv) {
         char *buf = (char*)malloc(n.data.siz);
         fread(buf, sizeof(char), n.data.siz, f);
         write(fd, buf, n.data.siz);
-        printf("[%s]\t\tWriting %d bytes...\n", p.c_str(), n.data.siz);
         close(fd);
         free(buf);
         BlobOffset += ALIGNSECTOR(n.data.siz);
     }
 
-    printf("File Count: %ld\n", nodes.size());
+    printf("Extracted %ld files.\n", nodes.size());
 
     fclose(f);
 }
